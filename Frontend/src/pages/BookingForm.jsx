@@ -19,7 +19,7 @@ export default function BookingForm({ preselectedSlot, onBookingSuccess }) {
   useEffect(() => {
     const fetchSlots = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/slots");
+        const response = await axios.get("https://bettter-kishan-kumar.onrender.com/api/slots/");
         setSlots(response.data);
       } catch (error) {
         console.error("❌ Error fetching slots:", error.message);
@@ -38,7 +38,7 @@ export default function BookingForm({ preselectedSlot, onBookingSuccess }) {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/slots/book", {
+      const response = await axios.post("https://bettter-kishan-kumar.onrender.com/api/slots/book", {
         user: {
           fullName: formData.fullName,
           phone: formData.phone,

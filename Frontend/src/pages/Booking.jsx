@@ -13,7 +13,7 @@ export default function Booking() {
   useEffect(() => {
     const fetchSlots = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/slots");
+        const res = await axios.get("https://bettter-kishan-kumar.onrender.com/api/slots");
         setSlots(res.data);
       } catch (err) {
         console.error("Error fetching slots:", err);

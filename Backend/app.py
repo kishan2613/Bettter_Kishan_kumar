@@ -8,6 +8,9 @@ CORS(app)
 
 app.config["MONGO_URI"] = MONGO_URL
 
+print("DEBUG MONGO_URI FROM CONFIG =", app.config.get("MONGO_URI"))
+
+
 mongo = PyMongo()
 mongo.init_app(app)
 
@@ -26,6 +29,11 @@ def test_db():
 @app.route("/")
 def home():
     return "Flask backend running 🚀"
+
+@app.route("/health")
+def health():
+    return {"status": "ok"}, 200
+
 
 if __name__ == "__main__":
     app.run(debug=True)
